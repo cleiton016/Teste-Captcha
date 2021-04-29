@@ -1,17 +1,19 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Recaptcha msg="Testando CAPTCHA"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// import Hcaptcha from './components/Hcaptcha.vue'
+import Recaptcha from './components/Recaptcha.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    // Hcaptcha,
+    Recaptcha
   }
 }
 </script>
