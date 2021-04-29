@@ -14,7 +14,7 @@
             <input v-model="form.busca">
         </label>
         <br>
-        <vue-recaptcha @verify="checkRecaptcha"
+        <vue-recaptcha @verify="checkRecaptcha" @expired="invalidar"
             sitekey="6LenD7waAAAAAFYUiifS2QE6dWD3qnQhMK8fCAhL" >
         </vue-recaptcha>
         <button>submit</button>
@@ -24,7 +24,8 @@
     
 </template>
 
-<script src='https://www.google.com/recaptcha/api.js'></script>
+
+
 <script>
 import VueRecaptcha from 'vue-recaptcha';
 
@@ -54,17 +55,20 @@ export default {
     },
     methods:{
         checkRecaptcha(response){
-            alert("checkRecaptcha",{response})
+            alert(response)
             this.form.verificado = true;
             this.form.msgRecaptcha = 'Verificado'
         },
+        invalidar(){
+            this.form.verificado = false;
+            this.form.msgRecaptcha = 'Expirado'
+        },
         validarRecaptcha(){
-            alert("validarRecaptcha")
             if(!this.form.verificado){
                 this.form.msgRecaptcha= "Valide o Recaptcha"
                 return true
             }
-            return true
+            localStorage.setItem(this.form.criterio, this.form.busca)
         }
     }
 }

@@ -6,7 +6,6 @@
 </template>
 
 <script>
-// import Hcaptcha from './components/Hcaptcha.vue'
 import Recaptcha from './components/Recaptcha.vue'
 
 export default {
